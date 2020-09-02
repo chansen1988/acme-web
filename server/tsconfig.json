@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "inlineSources": true,
+      "module": "commonjs",
+      "outDir": "dist",
+      "sourceMap": true,
+      "target": "ES6",
+      "esModuleInterop": true
+    },
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "node_modules/**",
+      "src/**/*.spec.ts"
+    ]
+  }

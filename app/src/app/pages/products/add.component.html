@@ -1,0 +1,43 @@
+<div class="container">
+    <mat-spinner *ngIf="loading"></mat-spinner>
+    <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Customer Id</mat-label>
+                <input matInput required formControlName="customerId" />
+                <mat-error *ngIf="customerId.invalid">Invalid Customer Id</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Product</mat-label>
+                <mat-select required formControlName="productName">
+                    <mat-option value="domain">Domain</mat-option>
+                    <mat-option value="edomain">Educational Domain</mat-option>
+                    <mat-option value="pdomain">Protected Domain</mat-option>
+                    <mat-option value="email">Email</mat-option>
+                    <mat-option value="hosting">Hosting</mat-option>
+                </mat-select>
+                <mat-error *ngIf="productName.invalid">Invalid Product Name</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Domain</mat-label>
+                <input matInput placeholder="example.com" required formControlName="domain" />
+                <mat-error *ngIf="domain.invalid">Invalid Domain</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill" hintLabel="Months">
+                <mat-label>Duration</mat-label>
+                <input matInput type="number" required formControlName="duration" />
+                <mat-error *ngIf="duration.invalid">Invalid Duration</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Add</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+    <span>Acme Web - {{title}}</span>
+    <span class="spacer"></span>
+    <button mat-icon-button title="Product List" (click)="navigate('/products')">
+        <mat-icon>subscriptions</mat-icon>
+    </button>
+    <button mat-icon-button title="Emails" (click)="navigate('/emails')">
+        <mat-icon>email</mat-icon>
+    </button>
+</mat-toolbar>
+<router-outlet></router-outlet>

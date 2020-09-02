@@ -1,0 +1,33 @@
+<mat-spinner *ngIf="!products"></mat-spinner>
+
+<table mat-table [dataSource]="products" *ngIf="products">
+    <ng-container matColumnDef="CustomerId">
+        <th mat-header-cell *matHeaderCellDef>Customer ID</th>
+        <td mat-cell *matCellDef="let row">{{row.CustomerId}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="ProductName">
+        <th mat-header-cell *matHeaderCellDef>Product</th>
+        <td mat-cell *matCellDef="let row">{{row.ProductName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Domain">
+        <th mat-header-cell *matHeaderCellDef>Domain</th>
+        <td mat-cell *matCellDef="let row">{{row.Domain}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="StartDate">
+        <th mat-header-cell *matHeaderCellDef>Start Date</th>
+        <td mat-cell *matCellDef="let row">{{formatDate(row.StartDate)}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="DurationMonths">
+        <th mat-header-cell *matHeaderCellDef>Duration (Months)</th>
+        <td mat-cell *matCellDef="let row">{{row.DurationMonths}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+</table>
+
+<button mat-raised-button color="primary" (click)="router.navigateByUrl('/products/add')">Add</button>
